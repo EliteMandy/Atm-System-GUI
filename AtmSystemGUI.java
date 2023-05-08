@@ -1,11 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
 public class AtmSystemGUI extends JFrame implements ActionListener {
     private static int balance = 1000;
     private JLabel balanceLabel;
-
     public AtmSystemGUI() {
         setTitle("ATM System");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -19,17 +17,17 @@ public class AtmSystemGUI extends JFrame implements ActionListener {
         panel.add(welcomeLabel);
 
         JButton viewBalanceButton = new JButton("View Balance");
-        viewBalanceButton.setActionCommand("viewBalance");
+        viewBalanceButton.setActionCommand("View Balance");
         viewBalanceButton.addActionListener(this);
         panel.add(viewBalanceButton);
 
         JButton withdrawButton = new JButton("Withdraw Money");
-        withdrawButton.setActionCommand("withdrawMoney");
+        withdrawButton.setActionCommand("Withdraw Money");
         withdrawButton.addActionListener(this);
         panel.add(withdrawButton);
 
         JButton depositButton = new JButton("Deposit Money");
-        depositButton.setActionCommand("depositMoney");
+        depositButton.setActionCommand("Deposit Money");
         depositButton.addActionListener(this);
         panel.add(depositButton);
 
@@ -69,6 +67,7 @@ public class AtmSystemGUI extends JFrame implements ActionListener {
         int amount = Integer.parseInt(input);
         if (amount > balance) {
             JOptionPane.showMessageDialog(this, "Insufficient balance!");
+            JOptionPane.showMessageDialog(this, "You are Broke! ");
             return;
         }
         balance -= amount;
