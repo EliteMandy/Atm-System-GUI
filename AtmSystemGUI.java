@@ -8,7 +8,7 @@ public class AtmSystemGUI extends JFrame implements ActionListener {
         setTitle("ATM System");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
-
+        
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 1));
 
@@ -57,6 +57,12 @@ public class AtmSystemGUI extends JFrame implements ActionListener {
 
     private void viewBalance() {
         JOptionPane.showMessageDialog(this, "Your current balance is: " + balance);
+        if(balance<=10){
+            JOptionPane.showMessageDialog(this,"😥😥😥");
+        }
+//         else{
+//             JOptionPane.showMessageDialog(this, "Your current balance is: " + balance);
+//         }
     }
 
     private void withdrawMoney() {
@@ -70,8 +76,8 @@ public class AtmSystemGUI extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this, "You are Broke! ");
             return;
         }
-        balance -= amount;
-        JOptionPane.showMessageDialog(this, "Please collect your cash.\nYour updated balance is: " + balance);
+        balance = balance - amount;
+        JOptionPane.showMessageDialog(this, "Please collect your cash.\nNow you have " + balance+" Rupees.\nHave a Great Day Ahead.😃");
     }
 
     private void depositMoney() {
